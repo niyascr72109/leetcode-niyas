@@ -1,21 +1,21 @@
-// Last updated: 8/30/2026, 12:44:52 PM
+// Last updated: 8/30/2026, 3:33:56 PM
 1class Solution {
-2    public int longestOnes(int[] nums, int k) {
-3        int l = 0;
-4        int r = 0;
-5        int zeros = 0;
-6        int max = 0;
-7        while(r<nums.length){
-8            if(nums[r]==0) zeros++;
-9            if(zeros>k){
-10                if(nums[l]==0){
-11                    zeros--;
-12                }
-13                l++;
-14            }
-15            max=Math.max(max,r-l+1);
-16            r++;
-17        }
-18        return max;
-19    }
-20}
+2    public int totalFruit(int[] fruits) {
+3        int max = 0;
+4        int l = 0;
+5        int r = 0;
+6        HashMap<Integer,Integer> m = new HashMap<>();
+7        while(r<fruits.length){
+8            m.put(fruits[r],m.getOrDefault(fruits[r],0)+1);
+9            if(m.size()>2){
+10                m.put(fruits[l],m.get(fruits[l])-1);
+11                if(m.get(fruits[l])==0) m.remove(fruits[l]);
+12                l++;
+13            }
+14            max=Math.max(max,r-l+1);
+15            r++;
+16        }
+17        return max;
+18    }
+19}
+20
