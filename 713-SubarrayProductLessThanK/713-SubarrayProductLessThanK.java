@@ -1,7 +1,7 @@
-// Last updated: 8/31/2026, 3:36:25 PM
+// Last updated: 8/31/2026, 3:36:44 PM
 1class Solution {
 2    public int numSubarrayProductLessThanK(int[] nums, int k) {
-3        if(k==1) return 0;
+3        if(k<=1) return 0;
 4        int l = 0;
 5        int r = 0;
 6        int product = 1;
