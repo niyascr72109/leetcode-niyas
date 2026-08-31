@@ -1,4 +1,4 @@
-// Last updated: 8/31/2026, 3:36:44 PM
+// Last updated: 8/31/2026, 3:37:24 PM
 1class Solution {
 2    public int numSubarrayProductLessThanK(int[] nums, int k) {
 3        if(k<=1) return 0;
@@ -8,7 +8,7 @@
 7        int c = 0;
 8        while(r<nums.length){
 9            product*=nums[r];
-10            while(product >= k){
+10            while(product >= k && l<=r){
 11                product /= nums[l];
 12                l++;
 13            }
