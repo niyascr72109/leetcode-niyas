@@ -1,19 +1,23 @@
-// Last updated: 9/1/2026, 3:03:36 PM
+// Last updated: 9/1/2026, 3:19:23 PM
 1class Solution {
-2    public double findMaxAverage(int[] nums, int k) {
-3        int sum = 0;
-4        for(int i=0;i<k;i++){
-5            sum += nums[i];
-6        }
-7
-8        int max = sum;
-9
-10        for(int i=k;i<nums.length;i++){
-11            sum-=nums[i-k];
-12            sum+=nums[i];
-13            max=Math.max(max,sum);
-14        }
-15        return (double) max / k;
-16        
-17    }
-18}
+2    public int numOfSubarrays(int[] arr, int k, int threshold) {
+3        int c = 0;
+4        int sum = 0;
+5        for(int i=0;i<k;i++){
+6            sum+=arr[i];
+7        }
+8        if(sum >= threshold*k ){
+9            c++;
+10        }
+11
+12        for(int i=k;i<arr.length;i++){
+13            
+14            sum-=arr[i-k];
+15            sum+=arr[i];
+16            if(sum >= threshold*k ){
+17                c++;
+18            }
+19        }
+20        return c;
+21    }
+22}
