@@ -1,4 +1,4 @@
-// Last updated: 9/1/2026, 3:19:23 PM
+// Last updated: 9/1/2026, 3:19:41 PM
 1class Solution {
 2    public int numOfSubarrays(int[] arr, int k, int threshold) {
 3        int c = 0;
