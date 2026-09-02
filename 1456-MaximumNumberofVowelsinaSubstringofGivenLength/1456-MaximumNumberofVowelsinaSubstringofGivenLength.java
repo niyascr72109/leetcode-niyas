@@ -1,22 +1,24 @@
-// Last updated: 9/2/2026, 9:18:07 PM
+// Last updated: 9/2/2026, 9:57:17 PM
 1class Solution {
-2    public int numSubarrayProductLessThanK(int[] nums, int k) {
-3        int mul = 1;
+2    public int longestOnes(int[] nums, int k) {
+3        int max = 0;
 4        int l = 0;
 5        int r = 0;
-6        int c = 0;
-7        while(r<nums.length){
-8            mul*=nums[r];
-9            while(mul > k){
-10                mul/=nums[l];
-11                l++;
-12            }
-13            if(mul < k){
-14                c+=r-l+1;
-15            }
-16            r++;
-17
-18        }
-19        return c;
-20    }
-21}
+6        int zero = 0;
+7        int c = 0;
+8        while(r<nums.length){
+9            if(nums[r]==0){
+10                zero++;
+11            }
+12            while(zero > k){
+13                if(nums[l]==0){
+14                zero--;
+15                }
+16                l++;
+17            }
+18            max=Math.max(max,r-l+1);
+19            r++;
+20        }
+21        return max;
+22    }
+23}
