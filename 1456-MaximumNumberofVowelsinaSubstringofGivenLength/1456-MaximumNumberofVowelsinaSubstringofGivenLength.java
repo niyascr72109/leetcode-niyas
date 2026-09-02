@@ -1,25 +1,19 @@
-// Last updated: 9/2/2026, 9:01:12 PM
+// Last updated: 9/2/2026, 9:02:33 PM
 1class Solution {
-2    public boolean vowels(char c){
-3        return c=='a' ||c=='e' ||c=='i' ||c=='o' ||c=='u';
-4    }
-5    public int maxVowels(String s, int k) {
-6        int v = 0;
-7        int max = 0;
-8        for(int i=0;i<k;i++){
-9            if(vowels(s.charAt(i))){
-10                v++;
-11            }
-12        }
-13
-14        max = v;
-15
-16        for(int i=k;i<s.length();i++){
-17            if(vowels(s.charAt(i))) v++;
-18            if(vowels(s.charAt(i-k))) v--;
-19
-20            max=Math.max(max,v);
-21        }
-22        return max;
-23    }
-24}
+2    public int minSubArrayLen(int target, int[] nums) {
+3        int l = 0;
+4        int r = 0;
+5        int sum = 0;
+6        int min = Integer.MAX_VALUE;
+7        while(r<nums.length){
+8            sum += nums[r];
+9            while(sum >= target){
+10                min=Math.min(min,r-l+1);
+11                sum-= nums[l];
+12                l++;
+13            }
+14            r++;
+15        }
+16        return min==Integer.MAX_VALUE ? 0 : min;
+17    }
+18}
