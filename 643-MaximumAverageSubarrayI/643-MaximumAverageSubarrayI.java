@@ -1,29 +1,21 @@
-// Last updated: 9/1/2026, 3:41:23 PM
+// Last updated: 9/2/2026, 8:18:01 PM
 1class Solution {
-2    public boolean vowels(char c){
-3        return c=='a' ||c=='e' ||c=='i' ||c=='o' ||c=='u';
-4    }
-5    public int maxVowels(String s, int k) {
-6        int v = 0;
-7        for(int i=0;i<k;i++){
-8            if(vowels(s.charAt(i))){
-9                v++;
-10            }
-11        }
-12
-13        int max = v;
-14
-15        for(int i=k;i<s.length();i++){
-16            if(vowels(s.charAt(i))){
-17                v++;
-18            }
-19            if(vowels(s.charAt(i-k))){
-20                v--;
-21            }
-22            max=Math.max(max,v);
-23        }
-24        return max;
-25
-26
-27    }
-28}
+2    public double findMaxAverage(int[] nums, int k) {
+3        int sum = 0;
+4        for(int i=0;i<k;i++){
+5            sum+=nums[i];
+6        }
+7
+8        int max = sum;
+9
+10        for(int i=k;i<nums.length;i++){
+11            sum+=nums[i];
+12            sum-=nums[i-k];
+13            
+14            max = Math.max(max,sum);
+15        }
+16
+17        return (double) max/k;
+18        
+19    }
+20}
