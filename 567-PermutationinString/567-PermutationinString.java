@@ -1,4 +1,4 @@
-// Last updated: 9/3/2026, 3:22:39 PM
+// Last updated: 9/3/2026, 3:29:37 PM
 1class Solution {
 2    public boolean checkInclusion(String s1, String s2) {
 3        if(s1.length() > s2.length()) return false;
