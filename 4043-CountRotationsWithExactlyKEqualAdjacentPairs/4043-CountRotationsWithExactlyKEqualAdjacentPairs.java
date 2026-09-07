@@ -1,4 +1,4 @@
-// Last updated: 9/7/2026, 2:41:59 PM
+// Last updated: 9/7/2026, 2:53:43 PM
 1class Solution {
 2    public int countRotations(String s, int k) {
 3        int n = s.length();
@@ -13,8 +13,8 @@
 12        int x = n-c;  //unequal 3-1 = 2;
 13
 14        
-15        if(k == c-1)    return c;
-16        if(k == c)  return x;
+15        if(k == c-1)    return c;  //given == equal-1    equal;
+16        if(k == c)  return x;   //given == equal  => unequal
 17
 18        return 0;
 19        
