@@ -1,4 +1,4 @@
-// Last updated: 9/7/2026, 9:09:48 PM
+// Last updated: 9/7/2026, 9:17:02 PM
 1import java.util.*;
 2class MyStack {
 3    Queue<Integer> q;
