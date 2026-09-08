@@ -1,25 +1,26 @@
-// Last updated: 9/8/2026, 2:03:56 PM
+// Last updated: 9/8/2026, 2:21:25 PM
 1class Solution {
-2    public int[] intersection(int[] nums1, int[] nums2) {
-3        HashSet<Integer> s = new HashSet<>();
-4        for(int n : nums1){
-5            s.add(n);
-6        }
-7
-8        HashSet<Integer> ans = new HashSet<>();
-9
-10        for(int n : nums2){
-11            if(s.contains(n)){
-12                ans.add(n);
-13            }
-14        }
-15
-16        int res[] = new int[ans.size()];
-17
+2    public int[] intersect(int[] nums1, int[] nums2) {
+3        HashMap<Integer,Integer> h = new HashMap<>();
+4
+5        for(int i : nums1){
+6            h.put(i,h.getOrDefault(i,0)+1);
+7        }
+8
+9        List<Integer> ans = new LinkedList<>();
+10
+11        for(int i : nums2){
+12            if(h.getOrDefault(i,0) > 0){
+13                ans.add(i);
+14
+15                h.put(i,h.getOrDefault(i,0)-1);                
+16            }
+17        }
 18        int i = 0;
-19        for(int n : ans){
-20            res[i++] = n;
-21        }
-22        return res;
-23    }
-24}
+19        int res [] = new int[ans.size()];
+20        for(int num : ans){
+21            res[i++] = num;
+22        }
+23        return res;
+24    }
+25}
