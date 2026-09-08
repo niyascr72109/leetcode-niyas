@@ -1,31 +1,29 @@
-// Last updated: 9/8/2026, 10:34:42 AM
+// Last updated: 9/8/2026, 10:35:32 AM
 1class Solution {
-2    public int numSubarraysWithSum(int[] nums, int goal) {
-3        return atMost(nums, goal) - atMost(nums, goal - 1);
-4    }
-5
-6    private int atMost(int[] nums, int goal) {
+2    public int longestOnes(int[] nums, int k) {
+3
+4        int left = 0;
+5        int zeros = 0;
+6        int maxLength = 0;
 7
-8        if (goal < 0) {
-9            return 0;
-10        }
-11
-12        int left = 0;
-13        int sum = 0;
-14        int count = 0;
+8        for (int right = 0; right < nums.length; right++) {
+9
+10            if (nums[right] == 0) {
+11                zeros++;
+12            }
+13
+14            while (zeros > k) {
 15
-16        for (int right = 0; right < nums.length; right++) {
-17
-18            sum += nums[right];
+16                if (nums[left] == 0) {
+17                    zeros--;
+18                }
 19
-20            while (sum > goal) {
-21                sum -= nums[left];
-22                left++;
-23            }
-24
-25            count += right - left + 1;
-26        }
-27
-28        return count;
-29    }
-30}
+20                left++;
+21            }
+22
+23            maxLength = Math.max(maxLength, right - left + 1);
+24        }
+25
+26        return maxLength;
+27    }
+28}
