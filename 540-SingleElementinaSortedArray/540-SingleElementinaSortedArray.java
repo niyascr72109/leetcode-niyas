@@ -1,22 +1,38 @@
-// Last updated: 9/8/2026, 10:30:41 AM
-1class Solution {
-2    public int minSubArrayLen(int target, int[] nums) {
-3        int left = 0;
-4        int sum = 0;
-5        int minLength = Integer.MAX_VALUE;
-6
-7        for (int right = 0; right < nums.length; right++) {
+// Last updated: 9/8/2026, 10:31:19 AM
+1import java.util.*;
+2
+3class Solution {
+4    public boolean checkInclusion(String s1, String s2) {
+5        if (s1.length() > s2.length()) {
+6            return false;
+7        }
 8
-9            sum += nums[right];
-10
-11            while (sum >= target) {
-12                minLength = Math.min(minLength, right - left + 1);
+9        int[] freq1 = new int[26];
+10        int[] freq2 = new int[26];
+11
+12        int k = s1.length();
 13
-14                sum -= nums[left];
-15                left++;
-16            }
+14        // Count characters in s1
+15        for (char c : s1.toCharArray()) {
+16            freq1[c - 'a']++;
 17        }
 18
-19        return minLength == Integer.MAX_VALUE ? 0 : minLength;
-20    }
-21}
+19        // Sliding window in s2
+20        for (int right = 0; right < s2.length(); right++) {
+21
+22            freq2[s2.charAt(right) - 'a']++;
+23
+24            // Keep window size = s1.length()
+25            if (right >= k) {
+26                freq2[s2.charAt(right - k) - 'a']--;
+27            }
+28
+29            // Check if window is a permutation
+30            if (Arrays.equals(freq1, freq2)) {
+31                return true;
+32            }
+33        }
+34
+35        return false;
+36    }
+37}
