@@ -1,4 +1,4 @@
-// Last updated: 9/8/2026, 10:11:12 AM
+// Last updated: 9/8/2026, 10:11:27 AM
 1class Solution {
 2    public int countCommas(int n) {
 3        if(n < 999) return 0;
