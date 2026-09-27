@@ -1,13 +1,12 @@
-// Last updated: 9/27/2026, 9:00:25 AM
+// Last updated: 9/27/2026, 9:13:25 AM
 1class Solution {
-2    public int strStr(String haystack, String needle) {
-3        for(int i=0;i<haystack.length()-needle.length()+1;i++){
-4            if(haystack.charAt(i) == needle.charAt(0)){
-5                if(haystack.substring(i,needle.length()+i).equals(needle)){
-6                    return i;
-7                }
-8            }
-9        }
-10        return -1;
-11    }
-12}
+2    public String reverseWords(String s) {
+3        String str[] = s.split(" +");
+4        StringBuilder sb = new StringBuilder();
+5        for(int i=str.length-1;i>=0;i--){
+6            sb.append(str[i]+" ");
+7        }
+8
+9        return sb.toString().trim();
+10    }
+11}
