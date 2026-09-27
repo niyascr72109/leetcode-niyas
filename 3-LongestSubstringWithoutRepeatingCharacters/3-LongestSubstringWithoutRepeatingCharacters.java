@@ -1,21 +1,28 @@
-// Last updated: 8/30/2026, 3:33:56 PM
+// Last updated: 9/27/2026, 12:26:23 PM
 1class Solution {
-2    public int totalFruit(int[] fruits) {
-3        int max = 0;
-4        int l = 0;
-5        int r = 0;
-6        HashMap<Integer,Integer> m = new HashMap<>();
-7        while(r<fruits.length){
-8            m.put(fruits[r],m.getOrDefault(fruits[r],0)+1);
-9            if(m.size()>2){
-10                m.put(fruits[l],m.get(fruits[l])-1);
-11                if(m.get(fruits[l])==0) m.remove(fruits[l]);
-12                l++;
-13            }
-14            max=Math.max(max,r-l+1);
-15            r++;
-16        }
-17        return max;
-18    }
-19}
-20
+2    public boolean wordPattern(String pattern, String s) {
+3        HashMap<Character, String> h = new HashMap<>();
+4        String words[] = s.split(" ");
+5
+6        if (pattern.length() != words.length) {
+7            return false;
+8        }
+9
+10        for (int i = 0; i < pattern.length(); i++) {
+11            char ch = pattern.charAt(i);
+12
+13            if (h.containsKey(ch)) {
+14                if (!h.get(ch).equals(words[i])) {
+15                    return false;
+16                }
+17            } else {
+18                if (h.containsValue(words[i])) {
+19                    return false;
+20                }
+21                h.put(ch, words[i]);
+22            }
+23        }
+24
+25        return true;
+26    }
+27}
