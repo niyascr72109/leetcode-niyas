@@ -1,4 +1,4 @@
-// Last updated: 9/27/2026, 12:26:23 PM
+// Last updated: 9/27/2026, 12:40:04 PM
 1class Solution {
 2    public boolean wordPattern(String pattern, String s) {
 3        HashMap<Character, String> h = new HashMap<>();
