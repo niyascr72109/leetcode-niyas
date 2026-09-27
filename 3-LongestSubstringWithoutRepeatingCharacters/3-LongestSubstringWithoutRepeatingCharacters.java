@@ -1,18 +1,17 @@
-// Last updated: 9/27/2026, 12:50:37 PM
+// Last updated: 9/27/2026, 1:01:43 PM
 1class Solution {
-2    public String longestCommonPrefix(String[] strs) {
-3        Arrays.sort(strs);
-4        String longest = "";
-5        String f = strs[0];
-6        String l = strs[strs.length-1];
-7        int ind = 0;
-8        while(ind < f.length()){
-9            if(f.charAt(ind) == l.charAt(ind)){
-10                longest+=f.charAt(ind);
-11                ind++;
-12            }
-13            else break;
-14        }
-15        return longest;
-16    }
-17}
+2    public char findTheDifference(String s, String t) {
+3        int ascii_s = 0;
+4        int ascii_t = 0;
+5        for(char ch : s.toCharArray()){
+6            ascii_s+=ch;
+7        }
+8
+9        for(char ch : t.toCharArray()){
+10            ascii_t+=ch;
+11        }
+12
+13        char ch = (char)Math.abs(ascii_s-ascii_t);
+14        return ch;
+15    }
+16}
