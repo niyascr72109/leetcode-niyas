@@ -1,4 +1,4 @@
-// Last updated: 9/30/2026, 9:17:51 AM
+// Last updated: 9/30/2026, 9:18:13 AM
 1class Solution {
 2    public int[] separateDigits(int[] nums) {
 3        ArrayList<Integer> l = new ArrayList<>();
